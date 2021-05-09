@@ -1,5 +1,20 @@
-import "../styles/globals.css";
+import { GlobalStyles } from "@/styles/globals";
+import { FC } from "react";
+import { useRouter } from "next/router";
 
-const App = ({ Component, pageProps }) => <Component {...pageProps} />;
+interface AppProps {
+	Component: any;
+	pageProps: any;
+}
+
+const App: FC<AppProps> = ({ Component, pageProps }) => {
+	const router = useRouter();
+	return (
+		<>
+			<GlobalStyles />
+			<Component {...pageProps} key={router.route} />
+		</>
+	);
+};
 
 export default App;
