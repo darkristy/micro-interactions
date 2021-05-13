@@ -1,25 +1,39 @@
-import { Container, H } from "@/components/UI";
-import { motion } from "framer-motion";
-import { NextPage } from "next";
 import Link from "next/link";
-import { Fragment } from "react";
 import "twin.macro";
 
+import { motion } from "framer-motion";
+import { NextPage } from "next";
+
+import { Container, H } from "@/components/UI";
+import { useRoutes } from "@/hooks/useRoutes";
+
 const Home: NextPage = () => {
-	const links = [{ name: "Hover Wave", href: "/hover-wave" }];
+	const { data, error, stale, update } = useRoutes();
+
+	if (error) return <p>An error has occurred.</p>;
+	if (!data) return <p>Loading...</p>;
 
 	return (
 		<motion.div exit={{ opacity: 0 }}>
 			<Container size="large">
-				{links.map(({ name, href }, i) => (
-					<Fragment key={i}>
-						<Link href={href} passHref>
-							<a>
-								<H priority={1}>{name}</H>
-							</a>
-						</Link>
-					</Fragment>
-				))}
+				{stale && (
+					<div>
+						<button onClick={update} type="button">
+							See new Interactions
+						</button>
+					</div>
+				)}
+				<ul>
+					{data.reverse().map((route, i) => (
+						<li key={i}>
+							<Link href={`${route.href}`} passHref>
+								<a>
+									<H priority={1}>{route.name}</H>
+								</a>
+							</Link>
+						</li>
+					))}
+				</ul>
 			</Container>
 		</motion.div>
 	);

@@ -24,6 +24,7 @@
 			"@/hooks/*": ["hooks/*"],
 			"@/utils/*": ["utils/*"],
 			"@/stores/*": ["stores/*"],
+			"@/lib/*": ["lib/*"],
     }
   },
   "include": [

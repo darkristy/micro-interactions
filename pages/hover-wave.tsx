@@ -65,7 +65,7 @@ interface FakeLinkProps {
 
 const MotionLink: FC<FakeLinkProps> = ({ name, index }) => {
 	const LinkWrapper = styled.div(() => [tw`mx-8 h-12  overflow-hidden cursor-pointer`]);
-	const MotionHeading = motion(H, { forwardMotionProps: true });
+	const MotionHeading = motion(H);
 
 	const transition = { duration: 0.475, ease: [0.6, 0.125, -0.05, 0.9] };
 
