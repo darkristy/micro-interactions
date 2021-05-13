@@ -25,6 +25,7 @@
 			"@/utils/*": ["utils/*"],
 			"@/stores/*": ["stores/*"],
 			"@/lib/*": ["lib/*"],
+			"@/svg/*": ["svg/*"],
     }
   },
   "include": [

@@ -1,7 +1,10 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import { NextApiRequest, NextApiResponse } from "next";
 
-const routes = [{ name: "Hover Wave", href: "/hover-wave" }];
+const routes = [
+	{ name: "Hover Wave", href: "/hover-wave" },
+	{ name: "Thumbnail to Full Width", href: "/thumbnail-to-fullwidth" },
+];
 
-export default (req, res) => {
+export default (req: NextApiRequest, res: NextApiResponse): void => {
 	res.status(200).json(routes);
 };

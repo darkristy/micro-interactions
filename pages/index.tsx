@@ -4,8 +4,9 @@ import "twin.macro";
 import { motion } from "framer-motion";
 import { NextPage } from "next";
 
-import { Container } from "@/components/UI";
+import { B, Container } from "@/components/UI";
 import { useRoutes } from "@/hooks/useRoutes";
+import Down from "@/svg/down.svg";
 
 const Home: NextPage = () => {
 	const { data, error, stale, update } = useRoutes();
@@ -18,9 +19,11 @@ const Home: NextPage = () => {
 			<Container size="large">
 				{stale && (
 					<div>
-						<button onClick={update} type="button">
-							See new Interactions
-						</button>
+						<B
+							onClick={update}
+							icon={{ svg: <Down style={{ rotate: "135deg" }} />, fill: "white" }}
+							label="See New Interaction"
+						/>
 					</div>
 				)}
 				<ul>

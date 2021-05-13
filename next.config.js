@@ -11,7 +11,7 @@ module.exports = withPlugins([
 	[
 		withReactSvg,
 		{
-			include: path.resolve(__dirname, "src/svg"),
+			include: path.resolve(__dirname, "svg"),
 			webpack: (config) => {
 				// Unset client-side javascript that only works server-side
 				config.resolve.fallback = { fs: false, module: false };
