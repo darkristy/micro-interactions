@@ -4,7 +4,7 @@ import "twin.macro";
 import { motion } from "framer-motion";
 import { NextPage } from "next";
 
-import { Container, H } from "@/components/UI";
+import { Container } from "@/components/UI";
 import { useRoutes } from "@/hooks/useRoutes";
 
 const Home: NextPage = () => {
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
 						<li key={i}>
 							<Link href={`${route.href}`} passHref>
 								<a>
-									<H priority={1}>{route.name}</H>
+									<h1>{route.name}</h1>
 								</a>
 							</Link>
 						</li>

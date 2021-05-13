@@ -48,6 +48,12 @@ const customStyles = css`
 	h2 {
 		${tw`font-sans`};
 	}
+	h1 {
+		${tw`text-7xl font-semibold`}
+	}
+	h2 {
+		${tw`text-5xl font-semibold`}
+	}
 `;
 
 export const GlobalStyles = (): JSX.Element => (

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import { Container, H } from "@/components/UI";
+import { Container } from "@/components/UI";
 import { NextPage } from "next";
 import { FC, Fragment, useCallback } from "react";
 import tw, { styled } from "twin.macro";
@@ -54,9 +54,9 @@ interface FakeLinkProps {
 // 		>
 // 			{classNames.map((className, i) => (
 // 				<Fragment key={i}>
-// 					<H priority={2} className={className} customStyles={tw`uppercase `}>
+// 					<h2 className={className} tw="uppercase"}>
 // 						{linkInner}
-// 					</H>
+// 					</h2>
 // 				</Fragment>
 // 			))}
 // 		</LinkWrapper>
@@ -65,7 +65,6 @@ interface FakeLinkProps {
 
 const MotionLink: FC<FakeLinkProps> = ({ name, index }) => {
 	const LinkWrapper = styled.div(() => [tw`mx-8 h-12  overflow-hidden cursor-pointer`]);
-	const MotionHeading = motion(H);
 
 	const transition = { duration: 0.475, ease: [0.6, 0.125, -0.05, 0.9] };
 
@@ -111,14 +110,9 @@ const MotionLink: FC<FakeLinkProps> = ({ name, index }) => {
 		>
 			{animations.map((animation, i) => (
 				<Fragment key={i}>
-					<MotionHeading
-						priority={2}
-						customStyles={tw`uppercase`}
-						variants={letterContainerVariants}
-						animate={animation}
-					>
+					<motion.h2 variants={letterContainerVariants} animate={animation} tw="uppercase">
 						{linkInner}
-					</MotionHeading>
+					</motion.h2>
 				</Fragment>
 			))}
 		</LinkWrapper>
